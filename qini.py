@@ -1,7 +1,6 @@
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
-from scipy import integrate
 
 
 def qini_curve(data, treatment_col, outcome_col, uplift_col, n_bins=10):
@@ -53,7 +52,7 @@ def plot_qini_curve(pop_pct, qini_vals):
 
 
 def calculate_qini_auc(pop_pct, qini_vals):
-    return integrate.trapz(qini_vals, pop_pct)
+    return np.trapezoid(qini_vals, pop_pct)
 
 
 # Example usage
