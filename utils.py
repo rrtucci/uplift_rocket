@@ -1,6 +1,17 @@
 import pandas as pd
 import numpy as np
+import os
 
+def print_file_names_and_sizes(file_paths):
+    for path in file_paths:
+        try:
+            size = os.path.getsize(path)
+            name = os.path.basename(path)
+            print(f"{name}: {size} bytes")
+        except FileNotFoundError:
+            print(f"{path}: File not found")
+        except Exception as e:
+            print(f"{path}: Error - {e}")
 
 def create_binned_column(df,
                          col_name,
