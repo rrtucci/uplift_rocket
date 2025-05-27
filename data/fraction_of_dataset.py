@@ -34,18 +34,16 @@ if __name__ == "__main__":
         # Hero datasets, original sizes
         # train 1.18M, clients 7.64M, purchases 670M
         # final sizes after uncompressing and reducing by .001
-        # train 3K, clients 22K, purchases 4.5M,
+        # train 30K, clients 220K, purchases 45M,
         in_files = ["clients.csv.gz",
-                    "purchases.csv.gz",
                     "uplift_train.csv.gz"]
         out_files = ["small_clients.csv",
-                    "small_purchases.csv",
                     "small_uplift_train.csv"]
         print_file_names_and_sizes(in_files)
-        for i in range(3):
+        for i in range(2):
             reduce_csv(in_files[i],
                         out_files[i],
-                       fraction=0.001)
+                       fraction=0.01)
         print_file_names_and_sizes(out_files)
 
     main()
